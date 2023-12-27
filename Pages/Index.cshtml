@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Página Principal";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sejam Bem Vindos!</h1>
+    <h4>Conheçam a Hístoria do Casal Lili e Rafael!</h4>
+    <hr />
+</div>
+
+<div class="row">
+    @foreach (var momento in Model.Momentos)
+    {
+        <div class="col-sm-3">
+            <div class="card text-center bg-light mb-4">
+                <img class="card-img-top" src="Imagens/Momento/@String.Concat(momento.IdMomento.ToString("D4"),".jpeg")" alt="Imagem do @momento.Descricao">         
+                <div class="card-body" style="height:134px;">
+                    <h5 class="card-title">@momento.Data.ToString("dd/MM/yyyy")</h5>
+                    <p class="card-text">@momento.Descricao</p>
+                </div>
+                <div class="card-footer">
+                    <div><a href="#" class="btn btn-danger">Curtir</a></div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

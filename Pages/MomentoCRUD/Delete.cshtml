@@ -1,0 +1,32 @@
+﻿@page
+@model teste.Pages.MomentoCRUD.DeleteModel
+
+@{
+    ViewData["Title"] = "Apagar Momento";
+}
+
+<h3>Deseja realmente apagar este Momento?</h3>
+<div>
+    <h4><b>Código:</b> @Model.Momento.IdMomento.ToString("D4")</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Momento.Descricao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Momento.Descricao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Momento.Data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Momento.Data)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Momento.IdMomento" />
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-page="./Index">Voltar</a>
+    </form>
+</div>
